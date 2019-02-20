@@ -5,7 +5,7 @@ let _objectApi = axios.create({
 })
 
 let _state = {
-  object: []
+  object: {}
 }
 let _subscribers = {
   object: []
@@ -25,13 +25,13 @@ export default class nasaService {
   }
 
   get Object() {
-    return _state.object.map(o => new Object(o))
+    return _state.object
   }
 
   getAllObjects(url = '') {
     _objectApi.get(url)
       .then(response => {
-        let object = response.data
+        let object = new Object(response.data)
         setState('object', object)
       })
       .catch(err => {

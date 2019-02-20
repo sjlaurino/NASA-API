@@ -1,13 +1,12 @@
 export default class Object {
   constructor(data) {
-    this.name = data.name
+    this.url = data.url
   }
 
 
   grabTemplate() {
-    return
-    `
-    <img src="${this.name}" alt="">
+    return `
+     <img src="${this.url}" alt="">
     `
   }
 }
